@@ -71,15 +71,20 @@ export const Navbar: React.FC = () => {
   return (
   <nav className={`fixed top-6 left-1/2 -translate-x-1/2 w-[96%] sm:w-[92%] md:w-[86%] lg:w-[80%] z-50 bg-[#2F2E77] backdrop-blur-2xl shadow-[0_18px_45px_rgba(15,23,42,0.65)] rounded-[52px] md:rounded-[72px] lg:rounded-[88px] border border-white/10 ${isOpen ? 'overflow-visible' : 'overflow-hidden'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-20 md:h-24">
           {/* Logo */}
           <div className="flex items-center space-x-3 cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="w-11 h-11 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/30 group-hover:shadow-xl group-hover:shadow-brand-400/60 group-hover:scale-105 transition-all duration-300 overflow-hidden ring-1 ring-white/20 bg-white/5 backdrop-blur">
               <img src="/logo.jpg" alt="Techvitta Logo" className="w-full h-full object-cover" />
             </div>
-            <span className="text-3xl font-black text-white tracking-wider uppercase drop-shadow-[0_4px_18px_rgba(15,23,42,0.75)]">
-              TECHVITTA
-            </span>
+            <div className="flex flex-col justify-center">
+              <span className="text-3xl font-black text-white tracking-wider uppercase drop-shadow-[0_4px_18px_rgba(15,23,42,0.75)] leading-tight">
+                TECHVITTA
+              </span>
+              <span className="text-xs md:text-sm font-semibold text-white/95 tracking-wider uppercase leading-tight mt-0.5 ml-1 md:ml-1.5">
+                Innovations Pvt Ltd
+              </span>
+            </div>
           </div>
 
           {/* Desktop Links */}

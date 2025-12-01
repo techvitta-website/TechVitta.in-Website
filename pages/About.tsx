@@ -21,7 +21,7 @@ export const About: React.FC = () => {
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 tracking-tight mb-8">
-              About <span className="bg-gradient-to-r from-brand-600 via-brand-500 to-brand-700 bg-clip-text text-transparent">Techvitta Innovvations Pvt Ltd</span>
+              About <span className="bg-gradient-to-r from-brand-600 via-brand-500 to-brand-700 bg-clip-text text-transparent">Techvitta Innovations Pvt Ltd</span>
             </h1>
             <p className="text-xl md:text-2xl lg:text-3xl font-bold max-w-4xl mx-auto mb-6 text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-brand-500 to-navy-800 leading-relaxed">
               Making Blockchain Accessible and Practical for Your Business
