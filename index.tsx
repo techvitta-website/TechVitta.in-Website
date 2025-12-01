@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css';
 import { App } from './App';
 import { About } from './pages/About';
 import { Products } from './pages/Products';
