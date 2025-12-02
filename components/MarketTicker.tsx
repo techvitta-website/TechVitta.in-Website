@@ -1,14 +1,63 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button } from './Button';
 
 const industries = [
-  { name: 'Supply Chain', icon: '📦', description: 'Track & trace solutions', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=300&fit=crop&auto=format' },
-  { name: 'Real Estate', icon: '🏢', description: 'Tokenization & fractional ownership', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop&auto=format' },
-  { name: 'Banking & Finance', icon: '💼', description: 'Secure transactions & lending', image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&auto=format' },
-  { name: 'Healthcare', icon: '🏥', description: 'Data integrity & traceability', image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop&auto=format&q=80' },
+  { name: 'Supply Chain', icon: '📦', description: 'Track & trace solutions', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=200&h=150&fit=crop&auto=format' },
+  { name: 'Real Estate', icon: '🏢', description: 'Tokenization & fractional ownership', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=200&h=150&fit=crop&auto=format' },
+  { name: 'Banking & Finance', icon: '💼', description: 'Secure transactions & lending', image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=200&h=150&fit=crop&auto=format' },
+  { name: 'Healthcare', icon: '🏥', description: 'Data integrity & traceability', image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=200&h=150&fit=crop&auto=format&q=80' },
 ];
 
 export const MarketTicker: React.FC = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    let animationFrameId: number;
+    let scrollPosition = 0;
+    const scrollSpeed = 1.2; // pixels per frame (increased speed)
+
+    const autoScroll = () => {
+      if (scrollContainer) {
+        scrollPosition += scrollSpeed;
+        
+        // Reset scroll when reaching the end
+        if (scrollPosition >= scrollContainer.scrollWidth / 2) {
+          scrollPosition = 0;
+        }
+        
+        scrollContainer.scrollLeft = scrollPosition;
+        animationFrameId = requestAnimationFrame(autoScroll);
+      }
+    };
+
+    // Start auto-scrolling
+    animationFrameId = requestAnimationFrame(autoScroll);
+
+    // Pause on hover
+    const handleMouseEnter = () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+
+    const handleMouseLeave = () => {
+      animationFrameId = requestAnimationFrame(autoScroll);
+    };
+
+    scrollContainer.addEventListener('mouseenter', handleMouseEnter);
+    scrollContainer.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+      scrollContainer.removeEventListener('mouseenter', handleMouseEnter);
+      scrollContainer.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
   return (
     <section id="industries" className="py-20 relative overflow-hidden bg-gradient-to-b from-white via-slate-50/70 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -49,17 +98,22 @@ export const MarketTicker: React.FC = () => {
 
           {/* Horizontal industry strip */}
           <div className="relative">
-            <div className="hidden md:block pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white via-white/80 to-transparent rounded-l-[24px]" />
-            <div className="hidden md:block pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white via-white/80 to-transparent rounded-r-[24px]" />
+            <div className="hidden md:block pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white via-white/80 to-transparent rounded-l-[24px] z-10" />
+            <div className="hidden md:block pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white via-white/80 to-transparent rounded-r-[24px] z-10" />
 
-            <div className="flex gap-4 overflow-x-auto md:overflow-visible pb-2 md:pb-0 scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-transparent">
-              {industries.map((industry, idx) => (
+            <div 
+              ref={scrollContainerRef}
+              className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-slate-100 hover:scrollbar-thumb-slate-400 transition-colors"
+              style={{ scrollBehavior: 'auto' }}
+            >
+              {/* Duplicate items for seamless loop */}
+              {[...industries, ...industries].map((industry, idx) => (
                 <div
-                  key={industry.name}
-                  className="min-w-[220px] md:min-w-0 md:flex-1 group bg-white/95 rounded-3xl border border-slate-200/70 shadow-[0_14px_40px_rgba(15,23,42,0.12)] hover:shadow-[0_20px_55px_rgba(15,23,42,0.2)] hover:border-[#2F2E77]/40 transition-all duration-400 overflow-hidden scroll-reveal"
+                  key={`${industry.name}-${idx}`}
+                  className="flex-shrink-0 w-[320px] group bg-white/95 rounded-2xl border border-slate-200/70 shadow-[0_14px_40px_rgba(15,23,42,0.12)] hover:shadow-[0_20px_55px_rgba(15,23,42,0.2)] hover:border-[#2F2E77]/40 transition-all duration-400 overflow-hidden scroll-reveal"
                   style={{ transitionDelay: `${0.1 + idx * 0.05}s` }}
                 >
-                  <div className="relative h-28 md:h-32 overflow-hidden">
+                  <div className="relative h-44 overflow-hidden">
                     <img
                       src={industry.image}
                       alt={industry.name}
@@ -80,7 +134,7 @@ export const MarketTicker: React.FC = () => {
             </div>
 
             <div className="mt-6 flex justify-center">
-              <Button variant="secondary" showArrow>
+              <Button variant="secondary" showArrow onClick={() => (window as any).navigateTo('/contact')}>
                 Explore our solutions
               </Button>
             </div>

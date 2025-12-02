@@ -34,7 +34,7 @@ export const Products: React.FC = () => {
                 platform orchestration, and Web3 integration wrapped in enterprise‑grade security.
               </p>
               <div className="flex flex-wrap items-center gap-4">
-                <Button showArrow size="lg">
+                <Button showArrow size="lg" onClick={() => (window as any).navigateTo('/contact')}>
                   Explore solutions
                 </Button>
                 <span className="text-xs md:text-sm text-slate-500">

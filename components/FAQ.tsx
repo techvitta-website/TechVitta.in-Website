@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 
 const questions = [
-  { q: "What is Techvitta?", a: "Techvitta is a blockchain technology company specializing in providing enterprise blockchain solutions, tokenization services, and Web3 integration for businesses across various industries." },
-  { q: "What industries do you serve?", a: "We serve multiple industries including Supply Chain, Real Estate, Banking & Finance, Healthcare, Energy, and Luxury Goods. Our solutions are tailored to address specific industry challenges and use cases." },
-  { q: "How long does implementation take?", a: "Implementation timelines vary based on project complexity and requirements. Typically, blockchain solutions can be deployed within 3-6 months, with custom platforms taking 6-12 months. We provide detailed timelines during the consultation phase." },
-  { q: "Do you provide ongoing support?", a: "Yes, we offer comprehensive ongoing support including technical maintenance, system updates, team training, and optimization services to ensure your blockchain solution continues to deliver value." },
-  { q: "Can blockchain integrate with our existing systems?", a: "Absolutely. Our solutions are designed to integrate seamlessly with your existing business systems and infrastructure. We ensure compatibility and minimal disruption during implementation." },
+  { q: "What is Techvitta?", a: "Techvitta Innovations Pvt Ltd is a leading blockchain technology company specializing in enterprise-grade blockchain solutions, tokenization services, Web3 integration, and smart contract development. We help businesses transform their operations by leveraging distributed ledger technology to unlock new business models, enhance trust, and streamline processes." },
+  { q: "What is blockchain and how can it benefit my business?", a: "Blockchain is a distributed ledger technology that creates tamper-proof, transparent records of transactions. For businesses, it enables secure data sharing, reduces intermediaries, prevents fraud, enhances traceability, and creates new opportunities for tokenization and digital asset management. It's particularly valuable for multi-party ecosystems requiring trust and transparency." },
+  { q: "What industries do you serve?", a: "We serve multiple industries including Supply Chain (track & trace), Real Estate (tokenization & fractional ownership), Banking & Finance (secure transactions & lending), Healthcare (data integrity & traceability), Energy (carbon credits & peer-to-peer trading), and Luxury Goods (authenticity verification). Our blockchain solutions are tailored to address specific industry challenges and regulatory requirements." },
+  { q: "What services does Techvitta offer?", a: "We provide end-to-end blockchain services: (1) Tokenization Solutions - converting real-world assets into digital tokens with compliance built-in, (2) Blockchain Platform Development - custom networks for regulated environments, (3) Web3 Integration - connecting wallets, dApps, and DeFi protocols, (4) Smart Contract Development - secure, audited on-chain automation, (5) Blockchain Consulting - strategic guidance and roadmap planning, and (6) Security Audits - comprehensive reviews for mission-critical systems." },
+  { q: "What is tokenization and how does it work?", a: "Tokenization is the process of converting real-world assets (real estate, commodities, financial products) into digital tokens on a blockchain. This enables fractional ownership, increased liquidity, 24/7 trading, programmable compliance, and reduced transaction costs. We provide complete tokenization rails including asset digitization frameworks, smart contract design, token economics modeling, and regulatory alignment." },
+  { q: "Is blockchain secure? How do you ensure data protection?", a: "Yes, blockchain is inherently secure through cryptographic hashing, distributed consensus, and immutability. We implement enterprise-grade security including: (1) Multi-layered encryption, (2) Smart contract audits and formal verification, (3) Private/permissioned networks for sensitive data, (4) KYC/AML compliance integration, (5) Regular security assessments, and (6) Zero-trust architecture. All our solutions undergo rigorous security reviews before production deployment." },
+  { q: "Do you provide ongoing support and maintenance?", a: "Yes, we offer comprehensive ongoing support including: (1) 24/7 technical monitoring and incident response, (2) Regular system updates and optimization, (3) Smart contract upgrades and governance, (4) Team training and knowledge transfer, (5) Performance tuning and scalability improvements, and (6) Regulatory compliance updates. Our support packages ensure your blockchain solution continues to deliver value and evolves with your needs." },
+  { q: "What blockchain platforms do you work with?", a: "We work with multiple blockchain platforms based on your requirements: Ethereum (public smart contracts & DeFi), Hyperledger Fabric (enterprise private networks), Polygon (scalable Layer 2), Binance Smart Chain (cost-effective solutions), Solana (high-throughput applications), and custom blockchain architectures. We help you choose the right platform considering factors like scalability, transaction costs, security requirements, and regulatory compliance." },
 ];
 
 export const FAQ: React.FC = () => {
@@ -40,7 +43,10 @@ export const FAQ: React.FC = () => {
                 Our team is available to walk you through use-cases, architecture options, and next
                 steps for your organization.
               </p>
-              <button className="text-xs md:text-sm font-semibold text-[#2F2E77] hover:text-brand-600 underline decoration-[#2F2E77]/60">
+              <button 
+                onClick={() => (window as any).navigateTo('/contact')}
+                className="text-xs md:text-sm font-semibold text-[#2F2E77] hover:text-brand-600 underline decoration-[#2F2E77]/60 cursor-pointer"
+              >
                 Contact support
               </button>
             </div>

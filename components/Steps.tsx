@@ -31,6 +31,7 @@ export const Steps: React.FC = () => {
           <div className="mt-2 lg:mt-0">
             <Button
               variant="ghost"
+              onClick={() => (window as any).navigateTo('/contact')}
               className="btn-shine text-navy-900 font-semibold bg-gradient-to-r from-white via-slate-100 to-brand-200 px-8 py-3 rounded-full shadow-[0_20px_45px_rgba(13,26,54,0.7)] border border-white/70"
               showArrow
             >

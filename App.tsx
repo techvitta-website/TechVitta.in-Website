@@ -182,7 +182,8 @@ export function App() {
                 <div className="flex flex-col sm:flex-row items-center gap-5 animate-fade-in-up animate-delay-400">
                   <Button 
                     size="lg" 
-                    showArrow 
+                    showArrow
+                    onClick={() => (window as any).navigateTo('/contact')}
                     className="group relative btn-shine text-white font-semibold bg-gradient-to-r from-brand-500 via-brand-600 to-brand-700 px-10 py-4 rounded-full shadow-[0_25px_50px_rgba(41,40,118,0.45)] border border-brand-400/60 hover:-translate-y-0.5 transition-all duration-300"
                   >
                     Get started now

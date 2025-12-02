@@ -73,7 +73,20 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 md:h-24">
           {/* Logo */}
-          <div className="flex items-center space-x-3 cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              if (currentPath === '/' || currentPath === '') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                (window as any).navigateTo('/');
+                setCurrentPath('/');
+              }
+              setIsOpen(false);
+            }}
+            className="flex items-center space-x-3 cursor-pointer group"
+          >
             <div className="w-11 h-11 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/30 group-hover:shadow-xl group-hover:shadow-brand-400/60 group-hover:scale-105 transition-all duration-300 overflow-hidden ring-1 ring-white/20 bg-white/5 backdrop-blur">
               <img src="/logo.jpg" alt="Techvitta Logo" className="w-full h-full object-cover" />
             </div>
@@ -85,7 +98,7 @@ export const Navbar: React.FC = () => {
                 Innovations Pvt Ltd
               </span>
             </div>
-          </div>
+          </a>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-2">
@@ -162,6 +175,7 @@ export const Navbar: React.FC = () => {
             <Button
               variant="ghost"
               size="sm"
+              onClick={() => (window as any).navigateTo('/contact')}
               className="btn-shine text-navy-900 font-semibold bg-gradient-to-r from-white/95 via-slate-200/85 to-brand-200/70 px-6 py-2.5 rounded-full shadow-[0_16px_40px_rgba(13,26,54,0.6)] border border-white/50 hover:bg-gradient-to-r hover:from-white/95 hover:via-slate-200/85 hover:to-brand-200/70"
             >
               Get started now
@@ -260,6 +274,10 @@ export const Navbar: React.FC = () => {
             <div className="pt-4">
               <Button
                 variant="ghost"
+                onClick={() => {
+                  (window as any).navigateTo('/contact');
+                  setIsOpen(false);
+                }}
                 className="w-full btn-shine text-navy-900 font-semibold bg-gradient-to-r from-white/95 via-slate-200/85 to-brand-200/70 px-6 py-3 rounded-full shadow-[0_16px_40px_rgba(13,26,54,0.6)] border border-white/50 hover:bg-gradient-to-r hover:from-white/95 hover:via-slate-200/85 hover:to-brand-200/70"
               >
                 Get started now
