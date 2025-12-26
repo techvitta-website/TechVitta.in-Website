@@ -83,10 +83,10 @@ export function App() {
       
       <main className="relative overflow-hidden bg-[#f7f9ff] transition-colors duration-700 main-canvas">
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute -top-32 -right-10 w-[34rem] h-[34rem] bg-gradient-to-br from-brand-300/20 via-white/10 to-accent-200/30 blur-[140px] opacity-70 animate-soft-pulse"></div>
-          <div className="absolute -bottom-32 -left-16 w-[40rem] h-[40rem] bg-gradient-to-br from-accent-200/25 via-white/20 to-brand-200/20 blur-[150px] opacity-80 animate-soft-pulse" style={{animationDelay: '2s'}}></div>
-          <div className="guideline-line" style={{left: '18%'}}></div>
-          <div className="guideline-line" style={{right: '22%', animationDelay: '1.5s'}}></div>
+          <div className="absolute -top-32 -right-10 w-[20rem] sm:w-[28rem] md:w-[34rem] h-[20rem] sm:h-[28rem] md:h-[34rem] bg-gradient-to-br from-brand-300/20 via-white/10 to-accent-200/30 blur-[140px] opacity-70 animate-soft-pulse"></div>
+          <div className="absolute -bottom-32 -left-16 w-[24rem] sm:w-[32rem] md:w-[40rem] h-[24rem] sm:h-[32rem] md:h-[40rem] bg-gradient-to-br from-accent-200/25 via-white/20 to-brand-200/20 blur-[150px] opacity-80 animate-soft-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="guideline-line hidden md:block" style={{left: '18%'}}></div>
+          <div className="guideline-line hidden md:block" style={{right: '22%', animationDelay: '1.5s'}}></div>
         </div>
         <div className="relative z-10">
         {/* Hero Section - Ultra Premium */}
@@ -97,9 +97,9 @@ export function App() {
           {/* Premium Animated Background Layers */}
           <div className="absolute inset-0 overflow-hidden -z-10">
             {/* Animated gradient orbs */}
-            <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-gradient-to-br from-brand-500/30 via-brand-400/20 to-accent-400/15 rounded-full blur-[140px] opacity-70 -z-10 translate-x-1/3 -translate-y-1/4 animate-float animate-gradient"></div>
-            <div className="absolute top-1/3 left-0 w-[900px] h-[900px] bg-gradient-to-br from-accent-400/25 to-brand-500/15 rounded-full blur-[140px] opacity-60 -z-10 -translate-x-1/3 animate-float animate-gradient" style={{animationDelay: '2s'}}></div>
-            <div className="absolute bottom-0 right-1/4 w-[800px] h-[800px] bg-gradient-to-br from-brand-300/20 to-navy-900/10 rounded-full blur-[140px] opacity-50 -z-10 animate-float animate-gradient" style={{animationDelay: '4s'}}></div>
+            <div className="absolute top-0 right-0 w-[400px] sm:w-[600px] md:w-[800px] lg:w-[1000px] h-[400px] sm:h-[600px] md:h-[800px] lg:h-[1000px] bg-gradient-to-br from-brand-500/30 via-brand-400/20 to-accent-400/15 rounded-full blur-[140px] opacity-70 -z-10 translate-x-1/3 -translate-y-1/4 animate-float animate-gradient"></div>
+            <div className="absolute top-1/3 left-0 w-[350px] sm:w-[550px] md:w-[750px] lg:w-[900px] h-[350px] sm:h-[550px] md:h-[750px] lg:h-[900px] bg-gradient-to-br from-accent-400/25 to-brand-500/15 rounded-full blur-[140px] opacity-60 -z-10 -translate-x-1/3 animate-float animate-gradient" style={{animationDelay: '2s'}}></div>
+            <div className="absolute bottom-0 right-1/4 w-[300px] sm:w-[500px] md:w-[700px] lg:w-[800px] h-[300px] sm:h-[500px] md:h-[700px] lg:h-[800px] bg-gradient-to-br from-brand-300/20 to-navy-900/10 rounded-full blur-[140px] opacity-50 -z-10 animate-float animate-gradient" style={{animationDelay: '4s'}}></div>
             
             {/* Animated grid pattern */}
             <div className="absolute inset-0 opacity-[0.02] animate-fade-in" style={{
@@ -108,7 +108,7 @@ export function App() {
             }}></div>
             
             {/* Shimmer effect */}
-            <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-gradient-to-br from-white/25 via-transparent to-transparent rounded-full blur-3xl opacity-40 animate-pulse"></div>
+            <div className="absolute top-0 left-1/4 w-[300px] sm:w-[500px] md:w-[700px] lg:w-[800px] h-[300px] sm:h-[500px] md:h-[700px] lg:h-[800px] bg-gradient-to-br from-white/25 via-transparent to-transparent rounded-full blur-3xl opacity-40 animate-pulse"></div>
             
             {/* Radial gradient overlay */}
             <div className="absolute inset-0 bg-radial-gradient from-transparent via-white/30 to-white/80 pointer-events-none"></div>
@@ -142,7 +142,7 @@ export function App() {
           </div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <div className="grid lg:grid-cols-2 gap-14 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-14 items-center">
               <div>
                 {/* Trust Badge */}
                 <div className="flex justify-start mb-8 animate-fade-in-up">
@@ -159,7 +159,7 @@ export function App() {
     
                 {/* Main Heading */}
                 <div className="text-left mb-10">
-                  <h1 className="font-display text-6xl md:text-7xl xl:text-8xl font-black text-slate-900 tracking-[-0.03em] leading-[0.95] animate-fade-in-up">
+                  <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-slate-900 tracking-[-0.03em] leading-[0.95] animate-fade-in-up">
                     Welcome to{' '}
                     <span className="relative inline-block">
                       <span className="bg-gradient-to-r from-brand-600 via-brand-500 via-accent-400 to-brand-700 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
@@ -169,11 +169,11 @@ export function App() {
                     </span>
                   </h1>
                   
-                  <p className="font-display text-2xl md:text-3xl font-semibold max-w-3xl mt-6 mb-6 text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-brand-500 to-navy-800 leading-[1.2] tracking-tight animate-fade-in-up animate-delay-200 animate-gradient bg-[length:200%_auto]">
+                  <p className="font-display text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold max-w-3xl mt-4 sm:mt-5 md:mt-6 mb-4 sm:mb-5 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-brand-500 to-navy-800 leading-[1.2] tracking-tight animate-fade-in-up animate-delay-200 animate-gradient bg-[length:200%_auto]">
                     Making Blockchain Accessible and Practical for Your Business
                   </p>
                   
-                  <p className="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed font-medium tracking-wide animate-fade-in-up animate-delay-300">
+                  <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed font-medium tracking-wide animate-fade-in-up animate-delay-300">
                     Transform your business with cutting-edge blockchain technology and Web3 solutions that drive innovation and growth
                   </p>
                 </div>
@@ -184,7 +184,7 @@ export function App() {
                     size="lg" 
                     showArrow
                     onClick={() => (window as any).navigateTo('/contact')}
-                    className="group relative btn-shine text-white font-semibold bg-gradient-to-r from-brand-500 via-brand-600 to-brand-700 px-10 py-4 rounded-full shadow-[0_25px_50px_rgba(41,40,118,0.45)] border border-brand-400/60 hover:-translate-y-0.5 transition-all duration-300"
+                    className="group relative btn-shine text-white font-semibold bg-gradient-to-r from-brand-500 via-brand-600 to-brand-700 px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 rounded-full shadow-[0_25px_50px_rgba(41,40,118,0.45)] border border-brand-400/60 hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base"
                   >
                     Get started now
                   </Button>
@@ -192,7 +192,7 @@ export function App() {
                     variant="outline" 
                     size="lg" 
                     onClick={() => (window as any).navigateTo('/about')} 
-                    className="btn-shine px-10 py-4 rounded-full border border-brand-200/50 bg-white/80 text-brand-600 font-semibold shadow-[0_20px_45px_rgba(13,26,54,0.2)] hover:-translate-y-0.5 transition-all duration-300"
+                    className="btn-shine px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 rounded-full border border-brand-200/50 bg-white/80 text-brand-600 font-semibold shadow-[0_20px_45px_rgba(13,26,54,0.2)] hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base"
                   >
                     Learn more
                   </Button>
@@ -245,8 +245,8 @@ export function App() {
               backgroundSize: '54px 54px',
             }}
           ></div>
-          <div className="absolute -top-40 -right-32 w-[520px] h-[520px] bg-[radial-gradient(circle_at_top,_rgba(47,46,119,0.35),transparent_60%)] blur-3xl opacity-80"></div>
-          <div className="absolute -bottom-56 -left-20 w-[620px] h-[620px] bg-[radial-gradient(circle_at_bottom,_rgba(114,192,255,0.35),transparent_60%)] blur-3xl opacity-80"></div>
+          <div className="absolute -top-40 -right-32 w-[300px] sm:w-[400px] md:w-[520px] h-[300px] sm:h-[400px] md:h-[520px] bg-[radial-gradient(circle_at_top,_rgba(47,46,119,0.35),transparent_60%)] blur-3xl opacity-80"></div>
+          <div className="absolute -bottom-56 -left-20 w-[350px] sm:w-[480px] md:w-[620px] h-[350px] sm:h-[480px] md:h-[620px] bg-[radial-gradient(circle_at_bottom,_rgba(114,192,255,0.35),transparent_60%)] blur-3xl opacity-80"></div>
           <div className="absolute inset-x-0 top-24 h-px bg-gradient-to-r from-transparent via-white/70 to-transparent opacity-80"></div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -441,8 +441,8 @@ export function App() {
               backgroundSize: '60px 60px',
             }}
           ></div>
-          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[960px] h-[520px] bg-[radial-gradient(circle_at_top,_rgba(47,46,119,0.32),transparent_65%)] blur-3xl opacity-80"></div>
-          <div className="absolute -bottom-60 right-[-10%] w-[720px] h-[520px] bg-[radial-gradient(circle_at_bottom,_rgba(114,192,255,0.35),transparent_60%)] blur-3xl opacity-80"></div>
+          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[90vw] sm:w-[600px] md:w-[800px] lg:w-[960px] h-[300px] sm:h-[400px] md:h-[520px] bg-[radial-gradient(circle_at_top,_rgba(47,46,119,0.32),transparent_65%)] blur-3xl opacity-80"></div>
+          <div className="absolute -bottom-60 right-[-10%] w-[70vw] sm:w-[500px] md:w-[650px] lg:w-[720px] h-[300px] sm:h-[400px] md:h-[520px] bg-[radial-gradient(circle_at_bottom,_rgba(114,192,255,0.35),transparent_60%)] blur-3xl opacity-80"></div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             {/* Header row */}
@@ -637,7 +637,7 @@ export function App() {
               backgroundSize: '72px 72px',
             }}
           ></div>
-          <div className="absolute -top-40 right-[-15%] w-[720px] h-[520px] bg-[radial-gradient(circle_at_top,_rgba(47,46,119,0.18),transparent_65%)] blur-3xl opacity-90"></div>
+          <div className="absolute -top-40 right-[-15%] w-[70vw] sm:w-[500px] md:w-[650px] lg:w-[720px] h-[300px] sm:h-[400px] md:h-[520px] bg-[radial-gradient(circle_at_top,_rgba(47,46,119,0.18),transparent_65%)] blur-3xl opacity-90"></div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1.1fr)] gap-14 items-start">

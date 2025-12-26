@@ -39,7 +39,7 @@ export const Features: React.FC = () => {
           backgroundSize: '80px 80px',
         }}
       ></div>
-      <div className="absolute -top-40 right-[-10%] w-[520px] h-[360px] bg-[radial-gradient(circle_at_top,_rgba(47,46,119,0.18),transparent_65%)] blur-3xl opacity-80 -z-10"></div>
+      <div className="absolute -top-40 right-[-10%] w-[300px] sm:w-[400px] md:w-[520px] h-[200px] sm:h-[280px] md:h-[360px] bg-[radial-gradient(circle_at_top,_rgba(47,46,119,0.18),transparent_65%)] blur-3xl opacity-80 -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}

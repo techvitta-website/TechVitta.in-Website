@@ -8,6 +8,7 @@ import { Services } from './pages/Services';
 import { Blogs } from './pages/Blogs';
 import { BlogDetail } from './pages/BlogDetail';
 import { Contact } from './pages/Contact';
+import Careers from './pages/Careers';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -15,18 +16,11 @@ if (!rootElement) {
 }
 
 const AppRouter = () => {
-  // Normalize pathname (remove trailing slash except for root)
-  const normalizePath = (path: string) => {
-    if (path === '/') return '/';
-    return path.replace(/\/$/, '') || '/';
-  };
-
-  const [currentPage, setCurrentPage] = useState(normalizePath(window.location.pathname));
+  const [currentPage, setCurrentPage] = useState(window.location.pathname);
 
   useEffect(() => {
     const handleNavigation = () => {
-      const normalizedPath = normalizePath(window.location.pathname);
-      setCurrentPage(normalizedPath);
+      setCurrentPage(window.location.pathname);
       // Scroll to top on back/forward button navigation
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -41,9 +35,8 @@ const AppRouter = () => {
   }, [currentPage]);
 
   const navigateTo = (path: string) => {
-    const normalizedPath = normalizePath(path);
-    window.history.pushState({}, '', normalizedPath);
-    setCurrentPage(normalizedPath);
+    window.history.pushState({}, '', path);
+    setCurrentPage(path);
   };
 
   // Make navigateTo available globally for navbar
@@ -54,8 +47,6 @@ const AppRouter = () => {
   }
 
   switch (currentPage) {
-    case '/':
-      return <App />;
     case '/about':
       return <About />;
     case '/products':
@@ -66,6 +57,8 @@ const AppRouter = () => {
       return <Blogs />;
     case '/contact':
       return <Contact />;
+    case '/careers':
+      return <Careers />;
     default:
       return <App />;
   }
