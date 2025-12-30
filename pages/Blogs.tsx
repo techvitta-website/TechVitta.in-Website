@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { Button } from '../components/Button';
@@ -130,7 +132,12 @@ export const Blogs: React.FC = () => {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {blogPosts
-                .filter(post => !post.featured)
+                .sort((a, b) => {
+                  // Sort by date (newest first) - parse dates for comparison
+                  const dateA = new Date(a.date);
+                  const dateB = new Date(b.date);
+                  return dateB.getTime() - dateA.getTime();
+                })
                 .map((post) => (
                   <div
                     key={post.id}
@@ -156,9 +163,31 @@ export const Blogs: React.FC = () => {
                       <h3 className="text-base md:text-lg font-semibold mb-2 text-slate-900 group-hover:text-[#2F2E77] transition-colors line-clamp-2">
                         {post.title}
                       </h3>
-                      <p className="text-slate-600 mb-4 leading-relaxed text-sm line-clamp-2">
-                        {post.excerpt}
-                      </p>
+                      <div className="text-slate-600 mb-4 leading-relaxed text-sm line-clamp-3 prose prose-sm prose-slate max-w-none">
+                        {post.contentMd ? (
+                          <ReactMarkdown
+                            remarkPlugins={[remarkGfm]}
+                            components={{
+                              p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+                              h1: () => null,
+                              h2: () => null,
+                              h3: () => null,
+                              h4: () => null,
+                              h5: () => null,
+                              h6: () => null,
+                              ul: ({ children }) => <ul className="list-disc list-inside mb-2">{children}</ul>,
+                              ol: ({ children }) => <ol className="list-decimal list-inside mb-2">{children}</ol>,
+                              li: ({ children }) => <li className="text-xs">{children}</li>,
+                              strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+                              em: ({ children }) => <em className="italic">{children}</em>,
+                            }}
+                          >
+                            {post.contentMd.split('\n').slice(0, 3).join('\n')}
+                          </ReactMarkdown>
+                        ) : (
+                          <p className="line-clamp-2">{post.excerpt}</p>
+                        )}
+                      </div>
                       <div className="pt-3 border-t border-slate-200 flex items-center justify-between">
                         <p className="text-xs md:text-sm text-slate-500">By {post.author}</p>
                         <span className="text-[#2F2E77] text-sm font-semibold group-hover:translate-x-1 transition-transform">
